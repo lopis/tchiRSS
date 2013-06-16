@@ -25,7 +25,8 @@
 		$feed['icon'] = $feedPDO['icon'];
 		$feed['url'] = $feedPDO['url'];
 		$rss = new SimpleXMLElement($feed['url'], null, true);
-		$lastUpdate = $rss->xpath('channel/item')[0];
+		$items = $rss->xpath('channel/item');
+		$lastUpdate = $items[0];
 		$feed['title'] = $lastUpdate->title;
 		$feed['link'] = $lastUpdate->link;
 		$feed['pubDate'] = $newDate = floor((time() - strtotime($lastUpdate->pubDate)) / 86400);
