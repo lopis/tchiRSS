@@ -12,3 +12,5 @@ It's still in development. Current goals are:
 * **[no]** Saving images to disk to load them faster;
 * **[no]** Do something about the slowness of feed fetching. I'll probably move all fetching to JavaScript in the near future and do it only after the DOM is loaded. Plus, I can add sweet reloading animations and such;
 * **[no]** Add themes;
+* **[no]** Add refresh button (after moving to javascript)
+* **[no]** Simplify app setup
