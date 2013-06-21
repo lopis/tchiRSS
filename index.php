@@ -45,7 +45,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="style.css">
-	<link href='http://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div class="container">

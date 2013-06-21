@@ -2,7 +2,7 @@ html, body, .container {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	font-family: 'Schoolbell', cursive;
+	font-family: 'Inder', sans-serif;
 	font-size: 16px;
 	background-image: url("img/bg.png");
 }
@@ -81,7 +81,6 @@ div {
 }
 
 input {
-	font-family: 'Schoolbell', cursive;
 	font-size: 20px;
 	width:400px;
     border-radius:5px;
@@ -103,6 +102,7 @@ input {
 
 input[type="submit"] {
 	width: 100px;
+	font-family: 'Inder', sans-serif;
 }
 
 @media (max-width: 1000px) {
