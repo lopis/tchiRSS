@@ -24,12 +24,6 @@
 		$feed['name'] = $feedPDO['name'];
 		$feed['icon'] = $feedPDO['icon'];
 		$feed['url'] = $feedPDO['url'];
-		$rss = new SimpleXMLElement($feed['url'], null, true);
-		$items = $rss->xpath('channel/item');
-		$lastUpdate = $items[0];
-		$feed['title'] = $lastUpdate->title;
-		$feed['link'] = $lastUpdate->link;
-		$feed['pubDate'] = $newDate = floor((time() - strtotime($lastUpdate->pubDate)) / 86400);
 		$feeds[$feed['id']] = $feed;
 	}
 	usort($feeds, 'compareFeeds');
@@ -45,7 +39,10 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="loader.css">
 	<link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -57,33 +54,37 @@
 			<div>
 				<form action="index.php" method="post">
 					<div class="label">Name</div>
-					<div class="input"><input name="name" type="text"></div>
+					<div class="input">
+						<input name="name" type="text">
+					</div>
 					<div class="label">URL</div>
 					<div class="label note">E.g.: http://www.starkana.com/rss/Shingeki_no_Kyojin</div>
-					<div class="input"><input name="url" type="text"></div>
+					<div class="input">
+						<input name="url" type="text">
+					</div>
 					<div class="label">Icon</div>
-					<div class="input"><input name="icon" type="text"></div>
+					<div class="input">
+						<input name="icon" type="text">
+					</div>
 					<input type="submit" value="Create">
 				</form>
 			</div>
 		</div>
 		<div class="feeds">
-			<?php foreach ($feeds as $feed){ ?>
-				<div class="feed">
+<!-- 			<?php foreach ($feeds as $feed){ ?>
+				<div class="feed" id="<?php echo $feed['id']; ?>">
 					<div class="icon"><img src="<?php echo $feed['icon']; ?>" alt=""></div>
 					<div class="details">
 						<div class="name">
 							<a href="<?php echo $feed['url'] ?>"><?php echo $feed['name'] ?></a>
 						</div>
 						<div class="lasttime"><a href="<?php echo $feed['link'] ?>">Last realease</a>: 
-							<?php
-								echo $feed['pubDate'] < 1 ? "Today!" :
-									 $feed['pubDate']== 1 ? "Yesterday" : $feed['pubDate'] . " days ago";
-							?>
+							<span>
+							</span>
 						</div>
 					</div>
 				</div>
-			<?php } ?>
+			<?php } ?> -->
 		</div>
 	</div>
 </body>
