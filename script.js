@@ -6,6 +6,7 @@ $(document).ready(function() {
 });
 
 function updateFeeds(){
+	feedNum = feeds.length;
 	$.each(feeds, function(feed){
 		$.ajax({
 			url: "getfeeds.php?feed=" + feeds[feed]['id'],
@@ -20,7 +21,14 @@ function updateFeeds(){
 				feeds[feed]['timeSince'] = timeSince;
 				str = timeAgo(timeSince);
 				//$("#"+feeds[feed]['id']+" > .details > .lasttime > span").text(str);
-				putFeed(feed);
+				//putFeed(feed);
+				feedNum--;
+				if (feedNum == 0) {
+					sortFeeds();
+					$.each(feeds, function(f){
+						putFeed(f);
+					});
+				}
 			}
 		});
 	});
@@ -34,6 +42,14 @@ function updateFeeds(){
 /*	$.each(feeds, function(feed){
 
 	});*/
+}
+
+function sortFeeds(){
+	feeds.sort(function(a,b){
+		at = a['timeSince'];
+		bt = b['timeSince'];
+		return at<bt?-1:at>bt?1:0;
+	});
 }
 
 function putFeed(feed){
@@ -50,7 +66,7 @@ function putFeed(feed){
 	$(".feed#"+id+" .icon").append("<img src='"+feeds[feed]['icon']+"' alt='' />");
 	$(".feed#"+id+" .name").append(feeds[feed]['name']);
 	$(".feed#"+id+" .lastime > span").append(
-		"Last release: "
+		"<span class='lasttime'>Last release: </span>"
 		+ "<a href='"+feeds[feed]['lastLink']+"'>"+timeAgo(feeds[feed]['timeSince'])+"</a>"
 	);
 	$(".feed#"+id+" .links").append('<div class="btn edit"></div>');

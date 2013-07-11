@@ -37,6 +37,15 @@ class SQLiteClass {
     	return $this->db->query('SELECT * FROM feeds');
     }
 
+    public function getURL($feedID){
+        $select = "SELECT url FROM feeds WHERE id = :id";
+        $stmt = $this->db->prepare($select);
+        $stmt->bindValue(':id', $feedID);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result[0];
+    }
+
     public function clearAll(){
     	$this->db->exec("DROP TABLE feeds");
     	$this->connect();

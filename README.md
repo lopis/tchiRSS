@@ -6,13 +6,16 @@ TchiRSS is a web app I create to easily track changes to my RSS feeds without ha
 
 Tchi is still under development.
 v.1.0
-* [X] SQLite connection to save RSS feed links;
+* [X] SQLite database for storing feed information;
 * [X] GUI to add RSS link;
 * [X] Reading last release dates from RSS XML documents;
+
+v1.1
+* [X] Use AJAX;
+
 Planned:
 * [ ] Come up with a "mark as read" feature or "last item read because sometimes just "last release date" is not enough;
 * [ ] Saving images to disk to load them faster;
-* [ ] Do something about the slowness of feed fetching. I'll probably move all fetching to JavaScript in the near future and do it only after the DOM is loaded. Plus, I can add sweet reloading animations and such;
 * [ ] Add themes;
 * [ ] Add refresh button (after moving to javascript)
 * [ ] Simplify app setup

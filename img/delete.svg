@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="delete.svg"
+   inkscape:export-filename="/home/joaolopes/tchirss/img/edit.png"
+   inkscape:export-xdpi="28.705025"
+   inkscape:export-ydpi="28.705025">
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3014">
+      <rect
+         style="opacity:0.95999995;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="rect3016"
+         width="56.442272"
+         height="54.800777"
+         x="6.5659914"
+         y="8.820447" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3018">
+      <rect
+         style="opacity:0.95999995;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="rect3020"
+         width="56.442272"
+         height="54.800777"
+         x="6.5659914"
+         y="8.820447" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="25.166161"
+     inkscape:cy="31.256371"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1309"
+     inkscape:window-height="744"
+     inkscape:window-x="57"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-988.36217)">
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 8.2724533,1001.9059 3.5762337,45.3358 39.942236,0 4.333848,-45.3358 z m 6.8203297,5.2192 34.945027,0 -3.327662,34.4604 -29.168544,0 z"
+       id="rect3873"
+       sodipodi:nodetypes="cccccccccc"
+       inkscape:export-filename="/home/joaolopes/tchirss/img/delete.png"
+       inkscape:export-xdpi="28"
+       inkscape:export-ydpi="28" />
+    <path
+       sodipodi:nodetypes="ccccccccc"
+       id="path3896"
+       d="m 56.839056,1000.4141 -0.428871,-5.31776 -20.65829,-0.13116 -1.657429,-2.73098 -3.691136,-10e-4 -1.655004,2.9833 -20.3121578,-0.13116 -0.5208578,5.32926 z"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/joaolopes/tchirss/img/delete.png"
+       inkscape:export-xdpi="28"
+       inkscape:export-ydpi="28" />
+    <rect
+       style="opacity:0.5;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect3898"
+       width="27.5"
+       height="5.0892859"
+       x="1010.3533"
+       y="-29.24107"
+       transform="matrix(0,1,-1,0,0,0)"
+       inkscape:export-filename="/home/joaolopes/tchirss/img/delete.png"
+       inkscape:export-xdpi="28"
+       inkscape:export-ydpi="28" />
+    <rect
+       transform="matrix(0,1,-1,0,0,0)"
+       y="-41.29464"
+       x="1010.3533"
+       height="5.0892859"
+       width="27.5"
+       id="rect3900"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       inkscape:export-filename="/home/joaolopes/tchirss/img/delete.png"
+       inkscape:export-xdpi="28"
+       inkscape:export-ydpi="28" />
+  </g>
+</svg>

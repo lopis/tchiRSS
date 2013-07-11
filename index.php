@@ -66,25 +66,11 @@
 					<div class="input">
 						<input name="icon" type="text">
 					</div>
-					<input type="submit" value="Create">
+					<input class="btn" type="submit" value="Create">
 				</form>
 			</div>
 		</div>
 		<div class="feeds">
-<!-- 			<?php foreach ($feeds as $feed){ ?>
-				<div class="feed" id="<?php echo $feed['id']; ?>">
-					<div class="icon"><img src="<?php echo $feed['icon']; ?>" alt=""></div>
-					<div class="details">
-						<div class="name">
-							<a href="<?php echo $feed['url'] ?>"><?php echo $feed['name'] ?></a>
-						</div>
-						<div class="lasttime"><a href="<?php echo $feed['link'] ?>">Last realease</a>: 
-							<span>
-							</span>
-						</div>
-					</div>
-				</div>
-			<?php } ?> -->
 		</div>
 	</div>
 </body>
