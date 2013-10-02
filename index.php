@@ -48,7 +48,7 @@
 			<div class="logo">
 				<img src="img/logo.png" alt="">
 			</div>
-			<div class="h2">Add feed</div>
+			<div id="action-title" class="h2">Add feed</div>
 			<div>
 				<form action="index.php" method="post">
 					<div class="label">Name</div>
@@ -69,9 +69,30 @@
 			</div>
 		</div>
 		<div class="feeds">
+			<script id="feeds-template" type="text/x-handlebars-template">
+				{{#each this}}
+					<div class="feed" id="{{id}}" data-id="{{id}}">
+						<div class="icon">
+							<img src="{{icon}}" alt="">
+						</div>
+						<div class="details">
+							<div class="links">
+								<div class="btn edit" data-id="{{id}}"></div>
+								<div class="btn delete" data-id="{{id}}"></div>
+								<div class="btn rss"></div>
+							</div>
+							<div class="name">{{name}}</div>
+							<div class="lastime">
+								<span><span class="lasttime">Last release: </span><a href="{{lastLink}}">{{lastUpdate}}</a></span>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+			</script>
 		</div>
 	</div>
 	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-1.0.0.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
