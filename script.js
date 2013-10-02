@@ -1,48 +1,63 @@
-//var feeds;
 
 var tchiRSS = {
 	init: function ( config ) {
 		this.config = config;
 		this.feeds;
-
+		
+		this.setupTemplates();
 		this.attachHandlers();
 		this.getFeeds();
+
 	},
 
 	attachHandlers: function () {
 		this.config.feedsContainer.on('click', '.delete', tchiRSS.deleteFeed);
+		this.config.feedsContainer.on('click', '.edit', tchiRSS.editFeed);
+	},
+
+	setupTemplates: function() {
+		this.config.template = Handlebars.compile( this.config.template );
+	},
+
+	attachFeedTemplate: function( ) {
+		this.config.feedsContainer.empty()
+					.append( this.config.template( this.feeds ) );
 	},
 	
-	updateFeeds: function () {
-		var self = this,
-			feeds = self.feeds;
+	updateFeeds: function (feeds) {
+		var self = this;
+		self.feeds = feeds;
+		self.feedNum = self.feeds.length;
+		$.each(self.feeds, self.getFeedTime);
+	},
 
-		feedNum = feeds.length;
-		$.each(feeds, function(feed){
-			$.ajax({
-				url: self.config.feedsSRC,
-				data: { feed: feeds[feed]['id'] },
-				success: function(result){
-					xmlDoc = $.parseXML(result),
-					xml = $( xmlDoc ),
-					feeds[feed]['lastLink'] = xml.find( "item:first-of-type > link" ).text();
-					pubDate = xml.find( "item:first-of-type > pubDate" ).text();
-					lastRelease = new Date(pubDate);
-					timeNow = new Date();
-					timeSince = Math.round((timeNow.getTime() - lastRelease.getTime())/86400000);
-					feeds[feed]['timeSince'] = timeSince;
-					str = timeAgo(timeSince);
-					//$("#"+feeds[feed]['id']+" > .details > .lasttime > span").text(str);
-					//putFeed(feed);
-					feedNum--;
-					if (feedNum === 0) {
-						self.sortFeeds();
-						$.each(feeds, function(f){
-							self.putFeed(f);
-						});
-					}
+	getFeedTime: function (feed) {
+		var self = tchiRSS;
+		$.ajax({
+			url: self.config.feedsSRC,
+			data: { feed: self.feeds[feed]['id'] },
+			success: function(result){
+				// Get the time
+				xmlDoc = $.parseXML(result),
+				xml = $(xmlDoc);
+				self.feeds[feed]['lastLink'] = xml.find( "item:first-of-type > link" ).text();
+				pubDate = xml.find( "item:first-of-type > pubDate" ).text();
+				lastRelease = new Date(pubDate);
+				timeNow = new Date();
+				timeSince = Math.round((timeNow.getTime() - lastRelease.getTime())/86400000);
+				self.feeds[feed]['timeSince'] = timeSince;
+				self.feeds[feed]['lastUpdate'] = timeAgo(timeSince);
+
+				// And humanize it
+				str = timeAgo(timeSince);
+				
+				// Sort and attach when it's the last feed
+				self.feedNum--;
+				if (self.feedNum === 0) {
+					self.sortFeeds();
+					self.attachFeedTemplate();
 				}
-			});
+			}
 		});
 	},
 
@@ -55,6 +70,7 @@ var tchiRSS = {
 	},
 
 	putFeed: function (feed) {
+		console.log(this.feeds[feed]);
 		id = this.feeds[feed]['id'];
 		$(".feeds").append("<div class='feed' id='" + id + "' data-id='" + id + "'/>");
 
@@ -71,7 +87,7 @@ var tchiRSS = {
 			"<span class='lasttime'>Last release: </span>"  +
 			"<a href='" + this.feeds[feed]['lastLink'] + "'>" + timeAgo(this.feeds[feed]['timeSince']) + "</a>"
 		);
-		$(".feed#" + id + " .links").append('<div class="btn edit"></div>');
+		$(".feed#" + id + " .links").append('<div class="btn edit" data-id="' + id + '"></div>');
 		$(".feed#" + id + " .links").append('<div class="btn delete" data-id="' + id + '"></div>');
 		$(".feed#" + id + " .links").append('<div class="btn rss"></div>');
 	},
@@ -83,8 +99,7 @@ var tchiRSS = {
 			url: self.config.feedsSRC,
 			dataType: 'json'
 		}).done( function(result){
-			self.feeds = result;
-			self.updateFeeds();
+			self.updateFeeds(result);
 		});
 	},
 
@@ -113,6 +128,21 @@ var tchiRSS = {
 				console.log('Could not remove feed.');
 			}
 		});
+	},
+
+	editFeed: function (evt) {
+		var id = evt.target.getAttribute('data-id'),
+			self = tchiRSS,
+			feed = $('.feed#' + id),
+			actionTitle = $('#action-title'),
+			submitButton = $('.btn[value=Create]'),
+			feedName = feed.find('.name').text();
+		
+
+		actionTitle.text('Edit feed ' + feedName);
+		submitButton.val('Edit');
+		//$('form input[name=name]').val(feed.data('id'));
+		$('form input[name=name]').val(feedName);
 	},
 
 	/**
@@ -146,5 +176,7 @@ function timeAgo(num){
 
 tchiRSS.init( {
 	feedsContainer : $('.feeds'),
-	feedsSRC: 'getfeeds.php'
+	feedsSRC: 'getfeeds.php',
+	template: $('#feeds-template').html(),
+
 });
