@@ -4,13 +4,14 @@ var tchiRSS = {
 	init: function ( config ) {
 		this.config = config;
 		this.feeds;
-
+		
 		this.attachHandlers();
 		this.getFeeds();
 	},
 
 	attachHandlers: function () {
 		this.config.feedsContainer.on('click', '.delete', tchiRSS.deleteFeed);
+		this.config.feedsContainer.on('click', '.edit', tchiRSS.editFeed);
 	},
 	
 	updateFeeds: function () {
@@ -71,7 +72,7 @@ var tchiRSS = {
 			"<span class='lasttime'>Last release: </span>"  +
 			"<a href='" + this.feeds[feed]['lastLink'] + "'>" + timeAgo(this.feeds[feed]['timeSince']) + "</a>"
 		);
-		$(".feed#" + id + " .links").append('<div class="btn edit"></div>');
+		$(".feed#" + id + " .links").append('<div class="btn edit" data-id="' + id + '"></div>');
 		$(".feed#" + id + " .links").append('<div class="btn delete" data-id="' + id + '"></div>');
 		$(".feed#" + id + " .links").append('<div class="btn rss"></div>');
 	},
@@ -113,6 +114,21 @@ var tchiRSS = {
 				console.log('Could not remove feed.');
 			}
 		});
+	},
+
+	editFeed: function (evt) {
+		var id = evt.target.getAttribute('data-id'),
+			self = tchiRSS,
+			feed = $('.feed#' + id),
+			actionTitle = $('#action-title'),
+			submitButton = $('.btn[value=Create]'),
+			feedName = feed.find('.name').text();
+		
+
+		actionTitle.text('Edit feed ' + feedName);
+		submitButton.val('Edit');
+		//$('form input[name=name]').val(feed.data('id'));
+		$('form input[name=name]').val(feedName);
 	},
 
 	/**

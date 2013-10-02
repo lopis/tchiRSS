@@ -48,7 +48,7 @@
 			<div class="logo">
 				<img src="img/logo.png" alt="">
 			</div>
-			<div class="h2">Add feed</div>
+			<div id="action-title" class="h2">Add feed</div>
 			<div>
 				<form action="index.php" method="post">
 					<div class="label">Name</div>
