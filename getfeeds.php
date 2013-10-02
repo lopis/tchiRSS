@@ -8,7 +8,7 @@
 	if(isset($_GET['feed'])){
 		$url = $sqlite->getURL($_GET['feed']);
 		$xml = simplexml_load_file($url);
-   		print_r($xml->asXML());
+		print_r($xml->asXML());
 	} else {
 		$feedsPDO = $sqlite->getAll();
 		$feeds = array();

@@ -27,7 +27,7 @@
 		$feeds[$feed['id']] = $feed;
 	}
 	usort($feeds, 'compareFeeds');
-
+	//print_r($feeds);
  ?>
 <!doctype html>
 <html lang="en">
@@ -41,8 +41,6 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="loader.css">
 	<link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -73,5 +71,7 @@
 		<div class="feeds">
 		</div>
 	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
